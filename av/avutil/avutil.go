@@ -16,6 +16,13 @@ type HandlerDemuxer struct {
 	r io.ReadCloser
 }
 
+func NewHandlerDemuxer(du av.Demuxer, r io.ReadCloser) *HandlerDemuxer {
+	return &HandlerDemuxer{
+		Demuxer:du,
+		r:r,
+	}
+}
+
 func (self *HandlerDemuxer) Close() error {
 	return self.r.Close()
 }
